@@ -18,8 +18,11 @@ pipeline{
         label 'built-in'
       }
       steps {
-        dir('/mnt/dev-playbook/')
+        dir('/mnt/dev-playbook/dev-project') {
+          sh 'ansible-playbook master.yaml'
+        }
       }
     }
+    
   }
 }
