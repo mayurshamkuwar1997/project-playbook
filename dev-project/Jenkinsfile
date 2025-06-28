@@ -1,1 +1,25 @@
+pipeline{
+  agent none
+  stages{
+    stage('clonning-repository-in-custom-directory'){
+      agent{
+        label 'built-in'
+      }
+      steps{
+        dir('/mnt/dev-playbook') {
+          sh 'rm -rf *'
+          checkout scm
+        }
+      }
+    }
 
+    stage('playbook-run-for-dev-instances') {
+      agent {
+        label 'built-in'
+      }
+      steps {
+        dir('/mnt/dev-playbook/')
+      }
+    }
+  }
+}
