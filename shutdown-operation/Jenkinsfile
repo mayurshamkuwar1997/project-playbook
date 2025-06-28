@@ -5,10 +5,12 @@ pipeline {
       agent {
         label 'built-in'
       }
+       steps {
        dir('/mnt/shutdown-script') {
          sh 'rm -rf *'
          checkout scm
        }      
+      }
     }
 
   stage('shutdown-dev-containers') {
