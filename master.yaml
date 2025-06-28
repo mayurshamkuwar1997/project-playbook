@@ -1,9 +1,0 @@
----
-- hosts: dev
-  user: mayur
-  become: yes
-  connection: ssh
-  gather_facts: yes
-
-  roles:
-    - 
