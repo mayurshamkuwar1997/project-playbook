@@ -1,2 +1,2 @@
 - name: run docker container of tomcat in qa instances
-  command: docker run -dp 8081:8081 -v /mnt/wars:/usr/local/tomcat/webapps --name tomcat-container-qa --restart=always tomcat:10
+  command: docker run -dp 8080:8080 -v /mnt/wars:/usr/local/tomcat/webapps --name tomcat-container-qa --restart=always tomcat:10
