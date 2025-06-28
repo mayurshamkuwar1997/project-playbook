@@ -1,2 +1,2 @@
 - name: run the docker container of tomcat
-  command: docker run -dp 8080:8080 -v /mnt/wars:/usr/local/tomcat/webapps --name tomcat-container tomcat:10
+  command: docker run -dp 8080:8080 -v /mnt/wars:/usr/local/tomcat/webapps --name tomcat-container-dev tomcat:10
