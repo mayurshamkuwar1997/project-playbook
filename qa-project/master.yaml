@@ -1,5 +1,5 @@
 ---
-- hosts: dev
+- hosts: qa
   user: mayur
   become: yes
   connection: ssh
