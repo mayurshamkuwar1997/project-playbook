@@ -1,1 +1,32 @@
+pipeline{
+  agent none
+  stages {
+    stage('clonning-git-repository-custom-in-directory') {
+       dir('/mnt/shutdown-script') {
+         sh 'rm -rf *'
+         checkout scm
+       }      
+    }
 
+  stage('shutdown-dev-containers') {
+    agent {
+      label 'dev'
+         }
+    steps{
+       sh 'sudo docker kill tomcat-container-dev'
+       sh 'sudo docker system prune -a -f'
+    }
+  }
+
+    stage('shutdown-qa-containers') {
+    agent {
+      label 'dev'
+          }
+    steps{
+       sh 'sudo docker kill tomcat-container-qa'
+       sh 'sudo docker system prune -a -f'
+    }
+  }
+    
+  }
+}
