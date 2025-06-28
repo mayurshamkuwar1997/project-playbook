@@ -2,6 +2,9 @@ pipeline {
   agent none
   stages {
     stage('clonning-git-repository-custom-in-directory') {
+      agent {
+        label 'built-in'
+      }
        dir('/mnt/shutdown-script') {
          sh 'rm -rf *'
          checkout scm
