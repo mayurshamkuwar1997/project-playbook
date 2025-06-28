@@ -25,7 +25,7 @@ pipeline {
 
     stage('shutdown-qa-containers') {
     agent {
-      label 'dev'
+      label 'qa'
           }
     steps{
        sh 'sudo docker kill tomcat-container-qa'
