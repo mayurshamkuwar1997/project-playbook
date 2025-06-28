@@ -7,9 +7,23 @@ stage('clonning-repository-on-custom-directory') {
    label 'built-in'
    }
  steps {
-  dir('/mnt/')
+  dir('/mnt/qa-playbook') {
+   sh 'rm -rf *'
+   checkout scm
+  }
  }
 }
 
-}
+stage('playbook-run-for-qa-instances') {
+  agent { 
+    label 'built-in'
+    }
+    steps {
+      dir('/mnt/qa-playbook/qa-project') {
+       sh 'ansible-playbook master.yaml'
+        }
+      }
+    }
+
+ }
 }
